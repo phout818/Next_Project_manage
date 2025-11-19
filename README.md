@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
@@ -14,23 +12,180 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ได้เลยครับ! 🎉
+ผมทำ README.md สำหรับโปรเจกต์ Next.js + API Project Management ของคุณ ให้อ่านง่ายและมืออาชีพ พร้อมการ setup ครบ
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+คุณสามารถ copy ได้เลย 👇
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+📌 README.md สำหรับโปรเจกต์ของคุณ
 
-To learn more about Next.js, take a look at the following resources:
+# 🚀 Project API Management (Next.js + TypeScript)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+โปรเจกต์นี้เป็นระบบจัดการโครงการ (Project Management) ที่พัฒนาด้วย **Next.js + TypeScript + TailwindCSS**  
+พร้อมเชื่อมต่อ API สำหรับสร้าง, แก้ไข, ลบ และอัปเดตสถานะของโครงการ  
+รวมถึงระบบ Login + Token + Role (SUPER_ADMIN)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📦 เทคโนโลยีที่ใช้
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Next.js 14+ (App Router)**
+- **React 18**
+- **TypeScript**
+- **TailwindCSS**
+- **REST API Service**
+- LocalStorage สำหรับจัดการ Token และ UserID
+- Modal Components (Create / Edit / Delete)
+- Toggle Switch สำหรับอัปเดตสถานะ real-time
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📁 โครงสร้างโฟลเดอร์หลัก
+
+project-folder/ │ ├─ src/ │ ├─ app/ │ │ ├─ login/ │ │ ├─ project/ │ │ └─ layout.tsx │ │ │ ├─ lib/ │ │ ├─ api.ts ← ฟังก์ชันเรียก API │ │ └─ auth.ts ← จัดการ token / user_id │ │ │ ├─ component/ │ ├─ ToggleSwitch.tsx │ └─ Modal Components │ ├─ public/icon/ │ ├─ .env.example ├─ .gitignore └─ README.md
+
+---
+
+## ⚙️ การติดตั้งโปรเจกต์
+
+### 1️⃣ Clone โปรเจกต์
+
+```sh
+git clone <your-repository-url>
+
+2️⃣ เข้าโฟลเดอร์โปรเจกต์
+
+cd nextjs-project
+
+3️⃣ ติดตั้ง dependencies
+
+npm install
+
+สำรับการ Login ใช้
+UserName : super_admin
+Password : password112
+
+---
+
+🔑 Environment Variables
+
+# ไฟล์ .env.local จะไม่รวมใน Git
+# ให้ copy จากไฟล์ตัวอย่าง
+
+# cp .env.example .env.local
+
+# จากนั้นใส่ค่าตามจริงใน .env.local
+
+# NEXT_PUBLIC_API_URL="https://api.marketxdev.store/api/v1"
+
+
+---
+
+▶️ การรันโปรเจกต์
+
+Development mode
+
+npm run dev
+
+เปิดเว็บที่:
+👉 http://localhost:3000
+
+
+---
+
+🔐 ระบบ Login
+
+โปรเจกต์มีระบบ login พร้อมเก็บข้อมูลใน localStorage:
+
+token
+
+user_id
+
+role (SUPER_ADMIN)
+
+สำรับการ Login ใช้
+UserName : super_admin
+Password : password112
+
+
+และมีระบบป้องกัน:
+
+ถ้าไม่มี token → redirect ไปหน้า login
+
+ถ้ากดปุ่ม back ของ browser → ไม่ย้อนกลับเข้าไปหน้า project ได้
+
+
+
+---
+
+🛠 ฟังก์ชันหลักที่ทำได้
+
+✔️ Login
+
+✔️ Logout
+
+✔️ ดึงข้อมูลโครงการจาก API
+
+✔️ สร้างโครงการ (Create)
+
+✔️ แก้ไขโครงการ (Edit)
+
+✔️ ลบโครงการ (Delete)
+
+✔️ อัปเดตสถานะโครงการ (Toggle)
+
+✔️ Modal ครบทั้งหมด
+
+✔️ Pagination
+
+✔️ การตกแต่ง UI ด้วย Tailwind
+
+✔️ ปรับ UI ให้สวยงาม + Fade Gradient Background
+
+
+---
+
+📤 การ Deploy
+
+รองรับ Next.js ทุกแพลตฟอร์ม เช่น:
+
+Vercel (แนะนำที่สุด)
+
+Netlify
+
+Docker
+
+Firebase Hosting
+
+หรือเซิร์ฟเวอร์ Linux ผ่าน Node.js
+
+
+
+---
+
+📝 Git Ignore Files
+
+โปรเจกต์นี้ ignore ไฟล์ดังนี้ (ตัวอย่าง):
+
+node_modules/
+.next/
+.env.local
+dist/
+
+
+---
+
+🤝 ผู้พัฒนา
+
+Developer: --
+Tech Stack: Next.js + TypeScript + Tailwind + REST API
+
+
+---
+
+
+
+---
+```
